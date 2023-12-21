@@ -5,6 +5,7 @@ import { Filters } from '../../components/Filter/Filters';
 import Pagination from '../../components/Pagination/Pagination';
 import { Loader } from '../../components/Loader/Loader';
 import { Delete, Search } from 'react-feather';
+import { FilterMoblie } from '../../components/Filter/FilterMoblie';
 
 
 export const Home = () => {
@@ -76,7 +77,22 @@ export const Home = () => {
             loading ? (
               <Loader />
             ) : (
-              characters ? <CharacterGrid characters={characters} /> : <p>Search returned with no results</p>
+              characters ? (
+                <>
+                  <CharacterGrid characters={characters} /> 
+                  <div className={styles.mobileFilters}>
+                    <FilterMoblie 
+                      setPage={setPage}
+                      filteredStatus={filteredStatus} 
+                      filteredGender={filteredGender} 
+                      filteredSpecies={filteredSpecies} 
+                      setFilteredGender={setFilteredGender} 
+                      setFilteredStatus={setFilteredStatus} 
+                      setFilteredSpecies={setFilteredSpecies} 
+                    />
+                  </div>
+                </>
+              ) :  <p>Search returned with no results</p>              
             )
           }
         </div>

@@ -51,8 +51,6 @@
     cursor: pointer;
     scale: 1.5;
 }
-
-
 /* MAIN */
 .main{
     box-sizing: border-box;
@@ -64,6 +62,9 @@
 
 .filter{
     flex-basis: 300px;
+}
+.mobileFilters{
+    display: none;
 }
 .characterGrid{
     flex-basis: calc(100% - 300px);
@@ -90,20 +91,21 @@
         height: 250px;
     }
     .searchContainer{
-        scale: 0.8;
+        scale: 0.6;
         width: 80%;
     }
 
     .overlay h1{
         font-size: 30px;
     }
-
-    
     .main{
         gap: 0;
     }
     .filter{
         display: none;
+    }
+    .mobileFilters{
+        display: block;
     }
     .characterGrid{
         display: flex;

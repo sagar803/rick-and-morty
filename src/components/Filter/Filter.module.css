@@ -44,4 +44,15 @@
 .option input{
     margin: 5px;
 }
+
+/*MOBILE FILTER CSS*/
+.mobileFiltersContainer{
+    width: 100%;
+}
+.filterIcon{
+    float: right;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 15px;
+}
   
