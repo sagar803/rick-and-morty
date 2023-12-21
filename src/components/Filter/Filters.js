@@ -16,7 +16,7 @@ export const Filters = ({setPage, filteredStatus, filteredSpecies, filteredGende
 
     return (
         <div className={styles.filterContainer}>
-            <div style={{borderBottom:'1px solid rgb(200,200,200)'}}>
+            <div className={styles.heading}>
                 <h3 >Filters</h3>
                 <RefreshCw className={styles.reset} onClick={resetFilters} size={14} />
             </div>

@@ -1,3 +1,4 @@
+/* HEAD SECTION */
 .homeMain {
     height: 100%;
     width: 100%;
@@ -26,6 +27,8 @@
     cursor: default;
     user-select: none;
 }
+
+/* SEARCH BAR */
 .searchContainer{
     padding: 0 30px;
     border: 1px solid grey;
@@ -38,55 +41,17 @@
     justify-content: space-between;
     color: grey;
 }
-.searchBar{
-    display: flex;
-    align-items: center;
-}
-
-.searchBar input {
-    font-size: 15px;
-    background-color: transparent;
-    border: 2px solid transparent;
-    width: 70px;
-    padding-left: 0.8em;
-    outline: none;
-    overflow: hidden;
-    transition: all 0.5s;
-}
-  
-.searchBar input:focus {
-    width: 300px;
-}
-
-.searchBar select {
-    font-size: 15px;
-    color: grey;
-    padding: 5px;
-    padding-left: 0;
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    margin-right: 10px;
-    outline: none;
-}
-  
-.searchBar select option {
-    background-color: #fff;
-    color: grey;
-}
-.searchIcon{
+.searchContainer input {
+    font-size: 16px;
     border: none;
-    background-color: transparent;
-    scale: 1.5;
-    cursor: cell;
-    transition: linear 0.2s;
+    outline: none;
 }
 
-.clear{
-    transform: rotate(45deg);
-    scale: 1.5;
+.searchIcon{
     cursor: pointer;
+    scale: 1.5;
 }
+
 
 /* MAIN */
 .main{
@@ -96,11 +61,25 @@
     display: flex;
     gap: 5%;
 }
+
 .filter{
-    flex-basis: 25%;
+    flex-basis: 300px;
 }
 .characterGrid{
-    flex-basis: 75%;
+    flex-basis: calc(100% - 300px);
+}
+
+@media (max-width: 1000px) {
+    .main{
+        padding: 50px 30px;
+    }
+    .filter{
+        flex-basis: 230px;
+    }
+    .characterGrid{
+        flex-basis: calc(100% - 230px);
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -112,9 +91,24 @@
     }
     .searchContainer{
         scale: 0.8;
-        width: 350px;
+        width: 80%;
     }
-    input:focus {
-        width: 180px;
+
+    .overlay h1{
+        font-size: 30px;
     }
+
+    
+    .main{
+        gap: 0;
+    }
+    .filter{
+        display: none;
+    }
+    .characterGrid{
+        display: flex;
+        flex-direction: column-reverse;
+        flex-basis: 100%;
+    }
+
 }

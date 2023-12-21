@@ -3,22 +3,26 @@ import CharacterGrid from '../../components/Character/CharacterGrid';
 import styles from './Home.module.css'
 import { Filters } from '../../components/Filter/Filters';
 import Pagination from '../../components/Pagination/Pagination';
+import { Loader } from '../../components/Loader/Loader';
+import { Delete, Search } from 'react-feather';
+
 
 export const Home = () => {
   const [characters, setCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterField, setFilterField] = useState('name');
   const [filteredGender, setFilteredGender] = useState('')
   const [filteredStatus, setFilteredStatus] = useState('')
   const [filteredSpecies, setFilteredSpecies] = useState('')
   const [page, setPage] = useState(1);
   const [info, setInfo] = useState({})
   const inputRef = useRef();
-  
+  const [loading, setLoading] = useState(false);
+
   const api = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchTerm}&status=${filteredStatus}&gender=${filteredGender}&species=${filteredSpecies}`;
   
   useEffect(() => {
     const fetchCharacters = async () => {
+    setLoading(true);
       try {
         const response = await fetch(api);
         const data = await response.json();
@@ -26,6 +30,8 @@ export const Home = () => {
         setInfo(data.info);
       } catch (error) {
         console.error('Error fetching characters:', error);
+      } finally{
+        setLoading(false);
       }
     };
 
@@ -35,27 +41,9 @@ export const Home = () => {
   useEffect(() => {
     inputRef.current.focus();
   },[])
+
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-  };
-
-  const handleFilterChange = (e) => {
-    setFilterField(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    fetchCharacters();
-  };
-
-  const fetchCharacters = async () => {
-    try {
-      const response = await fetch(`https://rickandmortyapi.com/api/character?${filterField}=${searchTerm}`);
-      const data = await response.json();
-      setCharacters(data.results);
-    } catch (error) {
-      console.error('Error fetching characters:', error);
-    }
   };
 
 
@@ -65,20 +53,8 @@ export const Home = () => {
         <div className={styles.overlay}>
           <h1>Rick And Morty World</h1>
           <div className={styles.searchContainer}>
-            <form className={styles.searchBar} onSubmit={handleSearchSubmit}>
-              <div className={styles.searchIcon}>🔍</div>
-              <input ref={inputRef} type="text" placeholder={`Search by`} value={searchTerm} onChange={handleSearchChange} />
-              <select value={filterField} onChange={handleFilterChange}>
-                <option value="name">Name</option>
-                <option value="status">Status</option>
-                <option value="location">Location</option>
-                <option value="episode">Episode</option>
-                <option value="gender">Gender</option>
-                <option value="species">Species</option>
-                <option value="type">Type</option>
-              </select>
-            </form>
-            <div style={{display: searchTerm ? 'block' : 'none'}} onClick={() => setSearchTerm('')} className={styles.clear}>+</div>
+            <input ref={inputRef} type="text" placeholder='Type names here...' value={searchTerm} onChange={handleSearchChange} />
+            <div className={styles.searchIcon} onClick={() => setSearchTerm('')}>{searchTerm ? <Delete size={15} /> : <Search size={15} />}</div>
           </div>
         </div>
       </div>
@@ -95,12 +71,12 @@ export const Home = () => {
           />
         </div>
         <div className={styles.characterGrid}>
+          <Pagination info={info} page={page} setPage={setPage}/>
           {
-            characters && (
-              <>
-                <Pagination info={info} page={page} setPage={setPage}/>
-                <CharacterGrid characters={characters} />
-              </>
+            loading ? (
+              <Loader />
+            ) : (
+              characters ? <CharacterGrid characters={characters} /> : <p>Search returned with no results</p>
             )
           }
         </div>

@@ -64,3 +64,10 @@
     color: white;
     font-weight: 500;
 }
+
+  
+@media (max-width: 600px) {
+    .pagination {
+        flex-direction: column;
+    }
+}  

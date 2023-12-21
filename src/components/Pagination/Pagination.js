@@ -3,6 +3,7 @@ import styles from './Pagination.module.css';
 import { ArrowLeft, ArrowRight } from 'react-feather';
 
 const Pagination = ({ page, setPage, info }) => {
+  if(!info) return null;
   const { count, pages, next, prev } = info;
   
   const renderPageNumbers = () => {

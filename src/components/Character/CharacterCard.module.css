@@ -12,6 +12,7 @@
 }
 .container:hover{
     scale: 1.05;
+    box-shadow:  5px 5px 9px #cacaca
 }
 .container img{
     height: 200px;
@@ -40,3 +41,15 @@
     margin: 0;
     font-size: 13px;
 }
+
+
+@media (max-width: 500px) {
+    .container{
+        height: 260x;
+        width: 150px;
+        margin: 10px;
+    }
+    .container img{
+        height: 150px;
+    }
+} 
