@@ -10,15 +10,15 @@ body,
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 4px;
     border-radius: 5px;
 }
 ::-webkit-scrollbar-track {
-    width: 10px;
-    background-color: rgb(45, 45, 45);
+    width: 4px;
+    background-color: rgb(255, 255, 255);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.751);
+    background-color: rgba(123, 123, 123, 0.751);
     border-radius: 2px;
 }

@@ -1,3 +1,66 @@
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 5px;
+    padding-bottom: 20px ;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.29);
+}
+
+.indexGroup{
+    display: flex;
+    align-items: center;
+}
 .prevNextBtn{
-    padding: 10px;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+.index {
+    transition: linear 0.2s;
+    user-select: none;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-weight: 500;
+    line-height: 30px; 
+    vertical-align: middle;
+}
+
+.active{
+    height: 40px;
+    width: 40px;
+    line-height: 40px; 
+    color: white;
+    border-radius: 15px;
+    background-color: orange;
+}
+
+.jumpToPage input{
+    padding-left: 10px;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.242);
+}
+.jumpToPage button{
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: orange;
+    color: white;
+    font-weight: 500;
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import CharacterGrid from '../../components/CharacterGrid';
+import CharacterGrid from '../../components/Character/CharacterGrid';
 import styles from './Home.module.css'
 import { Filters } from '../../components/Filter/Filters';
 import Pagination from '../../components/Pagination/Pagination';
@@ -14,9 +14,7 @@ export const Home = () => {
   const [page, setPage] = useState(1);
   const [info, setInfo] = useState({})
   const inputRef = useRef();
-
-  console.log(filteredStatus)
-
+  
   const api = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchTerm}&status=${filteredStatus}&gender=${filteredGender}&species=${filteredSpecies}`;
   
   useEffect(() => {
@@ -25,7 +23,7 @@ export const Home = () => {
         const response = await fetch(api);
         const data = await response.json();
         setCharacters(data.results);
-        setInfo(data.info)
+        setInfo(data.info);
       } catch (error) {
         console.error('Error fetching characters:', error);
       }
@@ -87,6 +85,7 @@ export const Home = () => {
       <div className={styles.main}>
         <div className={styles.filter}>
           <Filters 
+            setPage={setPage}
             filteredStatus={filteredStatus} 
             filteredGender={filteredGender} 
             filteredSpecies={filteredSpecies} 
@@ -96,8 +95,14 @@ export const Home = () => {
           />
         </div>
         <div className={styles.characterGrid}>
-          <Pagination info={info} page={page} setPage={setPage}/>
-          <CharacterGrid characters={characters} />
+          {
+            characters && (
+              <>
+                <Pagination info={info} page={page} setPage={setPage}/>
+                <CharacterGrid characters={characters} />
+              </>
+            )
+          }
         </div>
       </div>
     </div>

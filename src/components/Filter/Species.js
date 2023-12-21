@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { RefreshCw } from 'react-feather';
+import styles from './Filter.module.css'
 
-export const Species = ({ filteredSpecies, setFilteredSpecies }) => {
+export const Species = ({setPage, filteredSpecies, setFilteredSpecies }) => {
   const species = [
     "Human",
     "Alien",
@@ -18,24 +19,27 @@ export const Species = ({ filteredSpecies, setFilteredSpecies }) => {
 
   const handleSpeciesChange = (species) => {
     setFilteredSpecies(species);
+    setPage(1);
   };
 
   return (
-    <div>
-      <h5 style={{ display: 'inline' }}>Species</h5>
-      <div style={{ float: 'right', cursor:'pointer'}} onClick={() => setFilteredSpecies('')} ><RefreshCw size={15} /></div>
-      {species.map((s) => (
-        <div key={s}>
-          <input
-            type="radio"
-            id={s}
-            value={s}
-            checked={filteredSpecies === s}
-            onChange={() => handleSpeciesChange(s)}
-          />
-          <label htmlFor={s}>{s}</label>
-        </div>
-      ))}
+    <div className={styles.filter}>
+      <h5 className={styles.subHeading}>SPECIES</h5>
+      <div className={styles.reset} onClick={() => setFilteredSpecies('')} ><RefreshCw size={12} color='grey' /></div>
+      <div className={styles.inputContainer}>
+        {species.map((s) => (
+          <div className={styles.option}>
+            <input
+              type="checkbox"
+              id={s}
+              value={s}
+              checked={filteredSpecies === s}
+              onChange={() => handleSpeciesChange(s)}
+            />
+            <label htmlFor={s}>{s}</label>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
