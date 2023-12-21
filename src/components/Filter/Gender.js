@@ -16,7 +16,7 @@ export const Gender = ({ gender, setGender }) => {
       <div className={styles.reset} onClick={() => setGender('')} ><RefreshCw size={12} color='grey' /></div>
       <div className={styles.inputContainer}>
         {genders.map((g) => (
-          <div className={styles.option}>
+          <div key={g} className={styles.option}>
             <input
               type="checkbox"
               id={g}

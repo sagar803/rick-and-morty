@@ -1,0 +1,28 @@
+/* Updated CSS with refined grid styling */
+
+.episodesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .episodeCard {
+    user-select: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .episodeCard:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  
+  .episodeInfo {
+    margin-top: 8px;
+  }
+  
+  /* Optional: You can add more styling as needed */
+  

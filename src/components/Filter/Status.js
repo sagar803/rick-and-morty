@@ -16,7 +16,7 @@ export const Status = ({status, setStatus }) => {
       <div className={styles.reset} onClick={() => setStatus('')} ><RefreshCw size={12} color='grey' /></div>
       <div className={styles.inputContainer}>
         {statusOptions.map((s) => (
-          <div className={styles.option}>
+          <div key={s} className={styles.option}>
             <input
               type="checkbox"
               id={s}

@@ -27,7 +27,7 @@ export const Species = ({species, setSpecies }) => {
       <div className={styles.reset} onClick={() => setSpecies('')} ><RefreshCw size={12} color='grey' /></div>
       <div className={styles.inputContainer}>
         {speciesOptions.map((s) => (
-          <div className={styles.option}>
+          <div key={s} className={styles.option}>
             <input
               type="checkbox"
               id={s}

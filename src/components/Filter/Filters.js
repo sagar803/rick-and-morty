@@ -6,9 +6,9 @@ import { RefreshCw } from 'react-feather';
 import styles from './Filter.module.css'
 
 export const Filters = ({setPage, filteredStatus, filteredSpecies, filteredGender, setFilteredStatus, setFilteredGender, setFilteredSpecies}) => {
-    const [status, setStatus] = useState('')
-    const [species, setSpecies] = useState('')
-    const [gender, setGender] = useState('')
+    const [status, setStatus] = useState(filteredStatus)
+    const [species, setSpecies] = useState(filteredSpecies)
+    const [gender, setGender] = useState(filteredGender)
 
     const resetFilters = () => {
         setFilteredGender("");

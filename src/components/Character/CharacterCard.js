@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './CharacterCard.module.css'
 
 const CharacterCard = ({ character }) => {
-  console.log(character)
   const navigate = useNavigate();
   return (
     <div className={styles.container} onClick={() => navigate(`/character/${character.id}`)}>

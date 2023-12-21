@@ -1,0 +1,68 @@
+/* Profile.module.css */
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile {
+    text-align: center;
+  }
+  
+  .image-container {
+    position: relative;
+    max-width: 100%;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .episode-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .episode-list li {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .episode-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .episode-list a:hover {
+    color: #007bff;
+  }
+  
+  .episode-list strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .episode-list p {
+    margin: 0;
+  }
+  
