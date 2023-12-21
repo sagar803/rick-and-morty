@@ -11,7 +11,7 @@ export const FilterMoblie = ({ setPage, filteredStatus, filteredGender, filtered
             <div onClick={() => setOpen(!open)} className={styles.filterIcon} >
                 { open ? <X color='grey'/> : <Filter color='grey'/> }
             </div>
-            { open && (
+            <div style={{display: open ? 'block' : 'none'}}>
                     <Filters 
                         setPage={setPage}
                         filteredStatus={filteredStatus} 
@@ -21,8 +21,8 @@ export const FilterMoblie = ({ setPage, filteredStatus, filteredGender, filtered
                         setFilteredStatus={setFilteredStatus} 
                         setFilteredSpecies={setFilteredSpecies} 
                     />
-                )
-            }
+             
+            </div>
         </div>
     )
 }
