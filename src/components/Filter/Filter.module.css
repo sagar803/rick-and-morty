@@ -44,15 +44,32 @@
 .option input{
     margin: 5px;
 }
+.submitButton{
+    width: 100%;
+    text-align: center;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 0;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+.submitButton:active{
+    scale: 0.9;
+}
 
 /*MOBILE FILTER CSS*/
 .mobileFiltersContainer{
     width: 100%;
 }
 .filterIcon{
+    scale: 0.8;
     float: right;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid grey;
     border-radius: 15px;
 }
   
+.filterContainer{}

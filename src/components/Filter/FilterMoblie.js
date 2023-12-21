@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './Filter.module.css'
-import { Filter } from 'react-feather'
+import { Filter, X } from 'react-feather'
 import { Filters } from './Filters';
 
 
@@ -8,17 +8,19 @@ export const FilterMoblie = ({ setPage, filteredStatus, filteredGender, filtered
     const [open, setOpen] = useState(false);
     return (
         <div className={styles.mobileFiltersContainer}>
-            <Filter onClick={() => setOpen(!open)} className={styles.filterIcon} color='grey'/>
+            <div onClick={() => setOpen(!open)} className={styles.filterIcon} >
+                { open ? <X color='grey'/> : <Filter color='grey'/> }
+            </div>
             { open && (
-                <Filters 
-                    setPage={setPage}
-                    filteredStatus={filteredStatus} 
-                    filteredGender={filteredGender} 
-                    filteredSpecies={filteredSpecies} 
-                    setFilteredGender={setFilteredGender} 
-                    setFilteredStatus={setFilteredStatus} 
-                    setFilteredSpecies={setFilteredSpecies} 
-                />
+                    <Filters 
+                        setPage={setPage}
+                        filteredStatus={filteredStatus} 
+                        filteredGender={filteredGender} 
+                        filteredSpecies={filteredSpecies} 
+                        setFilteredGender={setFilteredGender} 
+                        setFilteredStatus={setFilteredStatus} 
+                        setFilteredSpecies={setFilteredSpecies} 
+                    />
                 )
             }
         </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Status } from './Status';
 import { Species } from './Species';
 import { Gender } from './Gender';
@@ -6,13 +6,26 @@ import { RefreshCw } from 'react-feather';
 import styles from './Filter.module.css'
 
 export const Filters = ({setPage, filteredStatus, filteredSpecies, filteredGender, setFilteredStatus, setFilteredGender, setFilteredSpecies}) => {
+    const [status, setStatus] = useState('')
+    const [species, setSpecies] = useState('')
+    const [gender, setGender] = useState('')
+
     const resetFilters = () => {
         setFilteredGender("");
         setFilteredSpecies("");
         setFilteredStatus("");
+        setStatus('');
+        setSpecies('');
+        setGender('');
         setPage(1);
-//        window.location.reload(false);
     };
+
+    const applyFilters = () => {
+        setFilteredGender(gender);
+        setFilteredSpecies(species);
+        setFilteredStatus(status);
+        setPage(1);
+    }
 
     return (
         <div className={styles.filterContainer}>
@@ -22,18 +35,16 @@ export const Filters = ({setPage, filteredStatus, filteredSpecies, filteredGende
             </div>
             <div>
                 <Status            
-                    setPage={setPage} 
-                    filteredStatus={filteredStatus} 
-                    setFilteredStatus={setFilteredStatus}/>
+                    status={status} 
+                    setStatus={setStatus}/>
                 <Species             
-                    setPage={setPage}
-                    filteredSpecies={filteredSpecies} 
-                    setFilteredSpecies={setFilteredSpecies}/>
+                    species={species} 
+                    setSpecies={setSpecies}/>
                 <Gender             
-                    setPage={setPage}
-                    filteredGender={filteredGender} 
-                    setFilteredGender={setFilteredGender}/>
+                    gender={gender} 
+                    setGender={setGender}/>
             </div>
+            <div onClick={applyFilters} className={styles.submitButton}>Apply Filters</div>
         </div>
     )
 }

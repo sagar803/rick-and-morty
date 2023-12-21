@@ -2,8 +2,8 @@ import React from 'react';
 import { RefreshCw } from 'react-feather';
 import styles from './Filter.module.css'
 
-export const Species = ({setPage, filteredSpecies, setFilteredSpecies }) => {
-  const species = [
+export const Species = ({species, setSpecies }) => {
+  const speciesOptions = [
     "Human",
     "Alien",
     "Humanoid",
@@ -18,22 +18,21 @@ export const Species = ({setPage, filteredSpecies, setFilteredSpecies }) => {
   ];
 
   const handleSpeciesChange = (species) => {
-    setFilteredSpecies(species);
-    setPage(1);
+    setSpecies(species);
   };
 
   return (
     <div className={styles.filter}>
       <h5 className={styles.subHeading}>SPECIES</h5>
-      <div className={styles.reset} onClick={() => setFilteredSpecies('')} ><RefreshCw size={12} color='grey' /></div>
+      <div className={styles.reset} onClick={() => setSpecies('')} ><RefreshCw size={12} color='grey' /></div>
       <div className={styles.inputContainer}>
-        {species.map((s) => (
+        {speciesOptions.map((s) => (
           <div className={styles.option}>
             <input
               type="checkbox"
               id={s}
               value={s}
-              checked={filteredSpecies === s}
+              checked={species === s}
               onChange={() => handleSpeciesChange(s)}
             />
             <label htmlFor={s}>{s}</label>
