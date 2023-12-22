@@ -1,0 +1,43 @@
+.location-container {
+    min-height: 100%;
+    padding: 50px 20%;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .metadata {
+    text-align: center;
+    background-color: #007bff44;
+    padding: 20px 0;
+    border-radius: 40px;
+  }
+  
+  .metadata p span {
+    color: rgba(81, 81, 81, 0.585);
+  }
+  
+  .location h3 {
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 1000px) {
+    .location-container {
+      padding: 50px 10%;
+    }
+  
+    .metadata {
+      border-radius: 20px;
+    }
+  }
+  
+  @media (max-width: 750px) {
+    .location-container {
+      padding: 50px 5%;
+    }
+  
+    .metadata {
+      border-radius: 15px;
+    }
+  }
+  

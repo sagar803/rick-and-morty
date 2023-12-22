@@ -1,5 +1,5 @@
 /* HEAD SECTION */
-.homeMain {
+.home {
     height: 100%;
     width: 100%;
 }
@@ -42,6 +42,7 @@
     color: grey;
 }
 .searchContainer input {
+    width: 250px;
     font-size: 16px;
     border: none;
     outline: none;
@@ -53,58 +54,31 @@
 }
 /* Tabs */
 .tabsContainer{
+    display: flex;
+    justify-content: flex-end;
     margin: 30px;
 }
 .tabsContainer span{
-    border: 1px solid white;
-    color: white;
+    border: 2px solid transparent;
+    color: grey;
     font-size: 14px;
-    margin: 10px;
+    margin: 5px;
     font-weight: 500;
     padding: 5px 15px;
     letter-spacing: 2px;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     box-shadow:  0px 0px 5px #cacaca
 }
 .tabsContainer .active{
     background-color: orange;
+    color: white;
 }
 .tabsContainer span:hover{
-    background-color: orange;
+    border: 2px solid orange;
 }
 
 /* MAIN */
-.main{
-    box-sizing: border-box;
-    width: 100%;
-    padding: 50px 100px;
-    display: flex;
-    gap: 5%;
-}
-
-.filter{
-    flex-basis: 300px;
-}
-.mobileFilters{
-    display: none;
-}
-.characterGrid{
-    flex-basis: calc(100% - 300px);
-}
-
-@media (max-width: 1000px) {
-    .main{
-        padding: 50px 30px;
-    }
-    .filter{
-        flex-basis: 230px;
-    }
-    .characterGrid{
-        flex-basis: calc(100% - 230px);
-    }
-
-}
 
 @media (max-width: 800px) {
     .header{
@@ -114,10 +88,9 @@
         height: 250px;
     }
     .searchContainer{
-        scale: 0.6;
+        scale: 0.7;
         width: 80%;
     }
-
     .overlay h1{
         font-size: 30px;
     }
@@ -125,54 +98,18 @@
         gap: 0;
         padding: 20px 15px;
     }
-    .filter{
-        display: none;
+    .tabsContainer{
+        margin: 15px;
     }
-    .mobileFilters{
-        display: block;
+    .tabsContainer span{
+        font-size: 11px;
+        margin: 3px;
+        font-weight: 400;
+        padding: 5px 10px;
     }
-    .characterGrid{
-        display: flex;
-        flex-direction: column-reverse;
-        flex-basis: 100%;
-    }
-
 }
 
 
 
-.episodesPage{
-    padding: 50px 10%;
-  }
+
   
-  .episodesContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-  }
-    
-  .episodeCard {
-    background-color: rgba(64, 0, 255, 0.093);
-    user-select: none;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.1s ease-in-out;
-  }
-  
-  .episodeCard:hover {
-    cursor: pointer;
-    transform: scale(1.04);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .episodeInfo {
-    margin-top: 8px;
-  }
-  
-  @media (max-width: 900px) {
-    .episodesPage{
-      padding: 30px 15px;
-    }
-  }

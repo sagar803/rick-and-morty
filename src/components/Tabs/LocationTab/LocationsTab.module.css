@@ -1,0 +1,35 @@
+.locationsPage {
+    padding: 0 50px 10%;
+  }
+  
+  .locationsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+  
+  .locationCard {
+    background-color: rgba(255, 0, 0, 0.093);
+    user-select: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .locationCard:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .locationInfo {
+    margin-top: 8px;
+  }
+  
+  @media (max-width: 900px) {
+    .locationsPage {
+      padding: 0 30px 15px;
+    }
+  }

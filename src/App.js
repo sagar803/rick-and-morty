@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './scenes/Home/Home';
 import { Profile } from './scenes/Profile/Profile';
 import Episode from './scenes/Episode/Episode';
-import { EpisodesPage } from './scenes/EpisodesPage/EpisodesPage';
+import Location from './scenes/Location/Location';
+
 
 function App() {
   return (
@@ -12,8 +13,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/episodes" element={<EpisodesPage />} />
           <Route path="/episode/:id" element={<Episode />} />
+          <Route path="/location/:id" element={<Location />} />
           <Route path="/character/:id" element={<Profile />} />
         </Routes>
       </Router>

@@ -1,5 +1,5 @@
 .container{
-    height: 500px;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -7,7 +7,7 @@
 }
 
 .three-body {
-    --uib-size: 35px;
+    --uib-size: 50px;
     --uib-speed: 0.8s;
     --uib-color: #5D3FD3;
     position: relative;
