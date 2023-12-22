@@ -1,34 +1,35 @@
-/* Episode.module.css */
-
 .episode-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    min-height: 100%;
+    padding: 50px 20%;
     background-color: #f5f5f5;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
-  .episode {
+  .metadata{
     text-align: center;
+    background-color: #007bff44;
+    padding: 20px 0;
+    border-radius: 40px;
   }
-  
-  .character-list {
-    list-style: none;
-    padding: 0;
+  .metadata p span{
+    color: rgba(81, 81, 81, 0.585);
   }
-  
-  .character-list li {
-    margin-bottom: 10px;
+  .episode h3{
+    margin-left: 10px;
   }
-  
-  .character-list a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+  @media (max-width: 1000px) {
+    .episode-container {
+      padding: 50px 10%;
+    } 
+    .metadata{
+      border-radius: 20px;
+    }
   }
-  
-  .character-list a:hover {
-    color: #007bff;
+  @media (max-width: 750px) {
+    .episode-container {
+      padding: 50px 5%;
+    } 
+    .metadata{
+      border-radius: 15px;
+    }
   }
-  

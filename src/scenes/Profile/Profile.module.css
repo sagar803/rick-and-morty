@@ -1,6 +1,7 @@
 /* Profile.module.css */
 
 .profile-page {
+  min-height: 100%;
     padding: 20px 20%;
     background-color: #f5f5f5;
     border-radius: 8px;
@@ -63,11 +64,6 @@
     color: #007bff;
   }
   
-  .episode-list strong {
-    display: block;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
   
   .episode-list p {
     margin: 0;

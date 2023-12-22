@@ -11,7 +11,6 @@ const Episode = () => {
   const [characters, setCharacters] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
-  console.log(characters)
 
   useEffect(() => {
     const fetchEpisode = async () => {
@@ -47,10 +46,12 @@ const Episode = () => {
     <div className={styles['episode-container']}>
       {episode && (
         <div className={styles.episode}>
-          <h2>{episode.name}</h2>
-          <p>Air Date: {episode.air_date}</p>
-          <p>Episode Code: {episode.episode}</p>
-          <h3>Characters:</h3>
+          <div className={styles.metadata}>        
+            <h1>{episode.name}</h1>
+            <p><span>Air Date:</span> {episode.air_date}</p>
+            <p><span>Episode Code:</span> {episode.episode}</p>
+          </div>
+          <h3>Characters starred in episode:</h3>
           <CharacterGrid characters={characters} />
         </div>
       )}
