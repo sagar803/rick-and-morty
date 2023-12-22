@@ -12,6 +12,7 @@ export const Profile = () => {
   const [location, setLocation] = useState(null);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
+  console.log(location)
 
   useEffect(() => {
     const fetchCharacter = async () => {
@@ -22,15 +23,18 @@ export const Profile = () => {
         setCharacter(data);
 
         // Fetch origin details
-        const originResponse = await fetch(data.origin.url);
-        const originData = await originResponse.json();
-        setOrigin(originData);
+        if(data?.origin?.url){
+          const originResponse = await fetch(data.origin.url);
+          const originData = await originResponse.json();
+          setOrigin(originData);
+        }
 
         // Fetch location details
-        const locationResponse = await fetch(data.location.url);
-        const locationData = await locationResponse.json();
-        setLocation(locationData);
-
+        if(data?.location?.url){
+          const locationResponse = await fetch(data.location.url);
+          const locationData = await locationResponse.json();
+          setLocation(locationData);  
+        }
         // Fetch episode details
         const episodeDetails = await Promise.all(
           data.episode.map(async (episodeUrl) => {
@@ -64,7 +68,7 @@ export const Profile = () => {
 
   return (
     <div className={styles['profile-page']}>
-      {character && origin && location && (
+      {character  && (
         <div className={styles.profile}>
           <div className={styles['profile-container']}>
             <div className={styles['metadata']}>
@@ -72,8 +76,17 @@ export const Profile = () => {
               <p><span>Species:</span> {character.species}</p>
               <p><span>Gender:</span> {character.gender}</p>
               <p><span>Status:</span> {character.status}</p>
-              <p><span>Origin:</span> {origin.name}</p>
-              <p><span>Current Location:</span> {location.name}</p>
+              <p><span>Origin:</span> {origin ? origin.name : 'Unknown'}</p>
+              {
+                location && (
+                  <>
+                    <p><span>Location:</span> {location.name }</p>
+                    <p><span>Dimension:</span> {location.dimension}</p>
+                    <p><span>No of residents:</span> {location.residents.length}</p>
+
+                  </>
+                )
+              }
               {/* Display additional origin and location details if available */}
             </div>
             <div className={styles['image-container']}>

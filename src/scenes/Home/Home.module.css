@@ -51,6 +51,29 @@
     cursor: pointer;
     scale: 1.5;
 }
+/* Tabs */
+.tabsContainer{
+    margin: 30px;
+}
+.tabsContainer span{
+    border: 1px solid white;
+    color: white;
+    font-size: 14px;
+    margin: 10px;
+    font-weight: 500;
+    padding: 5px 15px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow:  0px 0px 5px #cacaca
+}
+.tabsContainer .active{
+    background-color: orange;
+}
+.tabsContainer span:hover{
+    background-color: orange;
+}
+
 /* MAIN */
 .main{
     box-sizing: border-box;
@@ -115,3 +138,41 @@
     }
 
 }
+
+
+
+.episodesPage{
+    padding: 50px 10%;
+  }
+  
+  .episodesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+  }
+    
+  .episodeCard {
+    background-color: rgba(64, 0, 255, 0.093);
+    user-select: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .episodeCard:hover {
+    cursor: pointer;
+    transform: scale(1.04);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .episodeInfo {
+    margin-top: 8px;
+  }
+  
+  @media (max-width: 900px) {
+    .episodesPage{
+      padding: 30px 15px;
+    }
+  }
