@@ -37,7 +37,6 @@ export const EpisodesPage = () => {
               <p>Name: {episode.name}</p>
               <p>Air Date: {episode.air_date}</p>
               <p>Episode Code: {episode.episode}</p>
-              {/* Add other episode details as needed */}
             </div>
           ))}
         </div>

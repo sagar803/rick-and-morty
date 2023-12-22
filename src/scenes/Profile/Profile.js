@@ -63,25 +63,27 @@ export const Profile = () => {
   if (loading) return <Loader />;
 
   return (
-    <div className={styles['profile-container']}>
+    <div className={styles['profile-page']}>
       {character && origin && location && (
         <div className={styles.profile}>
-          <div className={styles['image-container']}>
-            <img className={styles['profile-image']} src={character.image} alt={character.name} />
-            <div className={styles['overlay']}>
-              <h2>{character.name}</h2>
-              <p>Species: {character.species}</p>
-              <p>Gender: {character.gender}</p>
-              <p>Status: {character.status}</p>
-              <p>Origin: {origin.name}</p>
-              <p>Current Location: {location.name}</p>
+          <div className={styles['profile-container']}>
+            <div className={styles['metadata']}>
+              <h1>{character.name}</h1>
+              <p><span>Species:</span> {character.species}</p>
+              <p><span>Gender:</span> {character.gender}</p>
+              <p><span>Status:</span> {character.status}</p>
+              <p><span>Origin:</span> {origin.name}</p>
+              <p><span>Current Location:</span> {location.name}</p>
               {/* Display additional origin and location details if available */}
+            </div>
+            <div className={styles['image-container']}>
+              <img className={styles['profile-image']} src={character.image} alt={character.name} />
             </div>
           </div>
 
           {character.episodeDetails && character.episodeDetails.length > 0 && (
             <div>
-              <h3>Episodes:</h3>
+              <h3>Episodes starring the character:</h3>
               <ul className={styles['episode-list']}>
                 {character.episodeDetails.map((episode, index) => (
                   <li key={index}>
