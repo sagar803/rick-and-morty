@@ -19,7 +19,7 @@ export const CharactersTab = ({
     characters,
   }) => {
     return (
-        <div className={styles.main}>
+        <div className={styles.charactersTab}>
         <div className={styles.filter}>
           <Filters
             setPage={setPage}

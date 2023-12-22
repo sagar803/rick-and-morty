@@ -1,5 +1,5 @@
 
-.main{
+.charactersTab{
   box-sizing: border-box;
   width: 100%;
   padding: 0 50px 100px;
@@ -18,7 +18,7 @@
 
 
 @media (max-width: 1000px) {
-  .main{
+  .charactersTab{
       padding: 0 50px 30px;
   }
   .filter{
@@ -30,6 +30,9 @@
 }
 
 @media (max-width: 800px) {
+  .charactersTab{
+    padding: 0 10px 30px;
+  }
   .filter{
       display: none;
   }

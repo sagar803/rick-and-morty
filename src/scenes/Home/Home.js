@@ -1,11 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import CharacterGrid from '../../components/Character/CharacterGrid';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './Home.module.css'
-import { Filters } from '../../components/Filter/Filters';
-import Pagination from '../../components/Pagination/Pagination';
-import { Loader } from '../../components/Loader/Loader';
 import { Delete, Search } from 'react-feather';
-import { FilterMoblie } from '../../components/Filter/FilterMoblie';
 import { useNavigate } from 'react-router-dom';
 import { EpisodesTab } from '../../components/Tabs/EpisodesTab/EpisodesTab';
 import { LocationsTab } from '../../components/Tabs/LocationTab/LocationsTab';
@@ -20,11 +15,17 @@ export const Home = () => {
   const [filteredGender, setFilteredGender] = useState('');
   const [filteredStatus, setFilteredStatus] = useState('');
   const [filteredSpecies, setFilteredSpecies] = useState('');
-  const [page, setPage] = useState(1);
   const [info, setInfo] = useState({});
-  const inputRef = useRef();
   const [loading, setLoading] = useState(false);
   const [tab, setTab] = useState('characters');
+  const [page, setPage] = useState(() => {
+    const storedPage = sessionStorage.getItem('currentPage');
+    return storedPage ? parseInt(storedPage, 10) : 1;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('currentPage', page.toString());
+  }, [page]);
 
   const characterApi = `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchTerm}&status=${filteredStatus}&gender=${filteredGender}&species=${filteredSpecies}`;
   const episodeApi = `https://rickandmortyapi.com/api/episode/?name=${searchTerm}`;
@@ -82,10 +83,6 @@ export const Home = () => {
     fetchLocations();
   }, [locationApi]);
 
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
   const changeTab = useCallback((currTab) => {
     setSearchTerm('');
     setTab(currTab);
@@ -103,7 +100,6 @@ export const Home = () => {
           <h1>Rick And Morty World</h1>
           <div className={styles.searchContainer}>
             <input
-              ref={inputRef}
               type="text"
               placeholder={`Type ${tab === 'characters' ? 'Character' : tab === 'episodes' ? 'Episode' : 'Location'} names here...`}
               value={searchTerm}
