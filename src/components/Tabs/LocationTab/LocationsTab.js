@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 export const LocationsTab = ({ locations, loading, navigate }) => {
     return (
-      <motion.div initial={{x: 500 }} animate={{ x: 0, transition : {duration : 0.5} }} className={styles.locationsPage}>
+      <motion.div initial={{opacity : 0 }} animate={{ opacity: 1, transition : {duration : 0.7}}} className={styles.locationsPage}>
         <h1>Rick and Morty Locations</h1>
   
         {loading && <Loader />}

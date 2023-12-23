@@ -21,7 +21,7 @@ export const CharactersTab = ({
     characters,
   }) => {
     return (
-      <motion.div initial={{x: -500 }} animate={{ x: 0, transition : {duration : 0.5} }} className={styles.charactersTab}>
+      <motion.div initial={{opacity : 0 }} animate={{ opacity: 1, transition : {duration : 0.7}}} className={styles.charactersTab}>
         <div className={styles.filter}>
           <Filters
             setPage={setPage}

@@ -51,20 +51,22 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchEpisodes = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(episodeApi);
-        const data = await response.json();
-        setEpisodes(data.results);
-      } catch (error) {
-        console.error('Error fetching episodes:', error);
-      } finally {
-        setLoading(false);
+        setLoading(true);
+        try {
+          const response = await fetch(episodeApi);
+          const data = await response.json();
+          setEpisodes(data.results);
+        } catch (error) {
+          console.error('Error fetching episodes:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      if(tab === 'episodes'){
+        fetchEpisodes();
       }
-    };
-
-    fetchEpisodes();
-  }, [episodeApi]);
+  }, [episodeApi, tab]);
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -79,9 +81,11 @@ export const Home = () => {
         setLoading(false);
       }
     };
-
-    fetchLocations();
-  }, [locationApi]);
+    
+      if(tab === 'locations'){
+        fetchLocations();
+      }
+    }, [locationApi, tab]);
 
   const changeTab = useCallback((currTab) => {
     setSearchTerm('');
