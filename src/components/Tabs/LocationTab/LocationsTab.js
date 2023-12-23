@@ -1,9 +1,11 @@
 import styles from './LocationsTab.module.css'
 import { Loader } from '../../Loader/Loader'
+import { motion } from 'framer-motion'
+
 
 export const LocationsTab = ({ locations, loading, navigate }) => {
     return (
-        <div className={styles.locationsPage}>
+      <motion.div initial={{x: 500 }} animate={{ x: 0, transition : {duration : 0.5} }} className={styles.locationsPage}>
         <h1>Rick and Morty Locations</h1>
   
         {loading && <Loader />}
@@ -19,6 +21,6 @@ export const LocationsTab = ({ locations, loading, navigate }) => {
             ))}
           </div>
         )}
-      </div>
+    </motion.div>
     )
 } 

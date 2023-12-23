@@ -1,9 +1,9 @@
 import { Loader } from '../../Loader/Loader';
 import styles from './EpisodesTab.module.css'
+import { motion } from 'framer-motion'
 
 export const EpisodesTab = ({ episodes, loading, navigate }) => (
-    <>
-      <div className={styles.episodesPage}>
+      <motion.div initial={{x: 500 }} animate={{ x: 0 , transition: { duration: 0.5 }}} className={styles.episodesPage}>
         <h1>Rick and Morty Episodes</h1>
   
         {loading && <Loader />}
@@ -19,6 +19,5 @@ export const EpisodesTab = ({ episodes, loading, navigate }) => (
             ))}
           </div>
         )}
-      </div>
-    </>
+      </motion.div>
   );

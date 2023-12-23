@@ -4,6 +4,8 @@ import { Filters } from '../../Filter/Filters'
 import { Loader } from '../../Loader/Loader'
 import Pagination from '../../Pagination/Pagination'
 import styles from './CharactersTab.module.css'
+import { motion } from 'framer-motion'
+
 
 export const CharactersTab = ({
     setPage,
@@ -19,7 +21,7 @@ export const CharactersTab = ({
     characters,
   }) => {
     return (
-        <div className={styles.charactersTab}>
+      <motion.div initial={{x: -500 }} animate={{ x: 0, transition : {duration : 0.5} }} className={styles.charactersTab}>
         <div className={styles.filter}>
           <Filters
             setPage={setPage}
@@ -54,6 +56,6 @@ export const CharactersTab = ({
             <p>Search returned with no results</p>
           )}
         </div>
-      </div>
+      </motion.div>
     )
   }
