@@ -32,10 +32,6 @@
     font-size: 13px;
     display: inline;
 }
-.reset{
-    float: right;
-    cursor: pointer;
-}
 .option{
     display: flex;
     margin: 2px;

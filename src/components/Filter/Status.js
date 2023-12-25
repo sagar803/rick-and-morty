@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { RefreshCw } from 'react-feather';
 import styles from './Filter.module.css'
 
 export const Status = ({status, setStatus }) => {
   const statusOptions = ["Alive", "Dead", "Unknown"];
 
   const handleStatusChange = (s) => {
-    setStatus(s);
+    if(status === s) setStatus('')
+    else setStatus(s);
   };
 
 
   return (
     <div className={styles.filter}>
       <h5 className={styles.subHeading}>STATUS</h5>
-      <div className={styles.reset} onClick={() => setStatus('')} ><RefreshCw size={12} color='grey' /></div>
       <div className={styles.inputContainer}>
         {statusOptions.map((s) => (
           <div key={s} className={styles.option}>

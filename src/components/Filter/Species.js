@@ -1,5 +1,4 @@
 import React from 'react';
-import { RefreshCw } from 'react-feather';
 import styles from './Filter.module.css'
 
 export const Species = ({species, setSpecies }) => {
@@ -17,14 +16,14 @@ export const Species = ({species, setSpecies }) => {
     "Planet",
   ];
 
-  const handleSpeciesChange = (species) => {
-    setSpecies(species);
+  const handleSpeciesChange = (s) => {
+    if(species === s) setSpecies('');
+    else setSpecies(s);
   };
 
   return (
     <div className={styles.filter}>
       <h5 className={styles.subHeading}>SPECIES</h5>
-      <div className={styles.reset} onClick={() => setSpecies('')} ><RefreshCw size={12} color='grey' /></div>
       <div className={styles.inputContainer}>
         {speciesOptions.map((s) => (
           <div key={s} className={styles.option}>
